@@ -1,0 +1,50 @@
+
+
+----------------
+
+
+t0 = read_timer, time_total = 0
+pause = false;
+;wait for start button
+
+btn_prev <- down?  --> {up, down}
+
+btn_holdtime = 0
+
+main loop{
+
+    //timing handling
+    t1 <- readtimer
+    delta_t <- magic(t0, t1)
+    
+
+    if(!pause){
+        if(time_total+time_delta causes total time to change to the next second/display change) re-print;
+        time_total+=delta_t
+    }else{
+        ; do nothing
+    }
+
+    //key handling
+    if (btn1_prev ==down && btn1 == down){
+        btn1_holdtime += delta_t
+    }
+
+    if(btn1 == up){
+        btn1_holdtime = 0
+    }
+
+    if(btn2_prev == up && btn2 == down){
+        pause = !pause;
+        re-print;
+    }
+
+    
+
+
+    btn1/2_prev <- btn1/2
+
+    t0 = t1
+
+
+}
